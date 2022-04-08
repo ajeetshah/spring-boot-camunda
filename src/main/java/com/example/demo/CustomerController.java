@@ -12,7 +12,7 @@ public class CustomerController {
     @Autowired
     CustomerRepository repository;
 
-    @GetMapping("/find-all")
+    @GetMapping("/customers")
     public List<CustomerResponse> findAll(){
 
         List<Customer> customers = repository.findAll();

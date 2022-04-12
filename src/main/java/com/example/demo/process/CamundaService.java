@@ -18,8 +18,9 @@ public class CamundaService {
     @Value("${process.definition.key}")
     private String processDefKey;
 
-    public ProcessInstance startProcess(Integer businessKey) {
+    public ProcessInstance startProcess(Integer businessKey, Boolean shouldVerifyDocuments) {
         final Map<String, Object> variables = new HashMap<>();
+        variables.put("shouldVerifyDocuments", shouldVerifyDocuments);
         return runtimeService
                 .createProcessInstanceByKey(processDefKey)
                 .businessKey(businessKey.toString())

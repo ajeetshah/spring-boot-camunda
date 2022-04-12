@@ -11,15 +11,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @EnableProcessApplication
 public class SpringBootCamunda {
 
-	@Autowired
-	private RuntimeService runtimeService;
+//	@Autowired
+//	private RuntimeService runtimeService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootCamunda.class, args);
 	}
 
-	private void processPostDeploy(PostDeleteEvent postDeleteEvent) {
-		runtimeService.startProcessInstanceByKey("loanApproval");
-	}
+//	private void processPostDeploy(PostDeleteEvent postDeleteEvent) {
+//		runtimeService.startProcessInstanceByKey("loanApproval");
+//	}
 
 }

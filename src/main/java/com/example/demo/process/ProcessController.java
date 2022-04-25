@@ -17,9 +17,9 @@ public class ProcessController {
     @Autowired
     ProcessEngine processEngine;
 
-    @GetMapping("/start/business/{businessKey}/{shouldVerifyDocuments}")
-    public String startProcess(@PathVariable("businessKey") Integer businessKey, @PathVariable("shouldVerifyDocuments") Boolean shouldVerifyDocuments){
-        camundaService.startProcess(businessKey, shouldVerifyDocuments);
+    @GetMapping("/start/business/{businessKey}")
+    public String startProcess(@PathVariable("businessKey") Integer businessKey){
+        camundaService.startProcess(businessKey);
         String message = "Starting a process with businessKey: " + businessKey;
         System.out.println(message);
         return message;

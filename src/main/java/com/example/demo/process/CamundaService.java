@@ -18,9 +18,15 @@ public class CamundaService {
     @Value("${process.definition.key}")
     private String processDefKey;
 
-    public ProcessInstance startProcess(Integer businessKey, Boolean shouldVerifyDocuments) {
+    public ProcessInstance startProcess(Integer businessKey) {
+
+        final HashMap<String, DepartmentMetadata> departments = new HashMap<>();
+        departments.put("1", new DepartmentMetadata(true, true));
+        departments.put("2", new DepartmentMetadata(true, false));
+
         final Map<String, Object> variables = new HashMap<>();
-        variables.put("shouldVerifyDocuments", shouldVerifyDocuments);
+        variables.put("departments", departments);
+
         return runtimeService
                 .createProcessInstanceByKey(processDefKey)
                 .businessKey(businessKey.toString())
@@ -28,4 +34,3 @@ public class CamundaService {
                 .execute();
     }
 }
-

@@ -1,5 +1,7 @@
 ## Hints
 
+a
+
 process instance -> before cretaion
 in java : load proc def
 dept -> id -> flags (we already done)
